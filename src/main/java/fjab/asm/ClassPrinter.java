@@ -8,7 +8,7 @@ import org.objectweb.asm.Opcodes;
 public class ClassPrinter extends ClassVisitor {
 
 	public ClassPrinter() {
-		super(Opcodes.ASM4);
+		super(Opcodes.ASM5);
 	}
 	
 	public void visit(int version, int access, String name,String signature, String superName, String[] interfaces) {

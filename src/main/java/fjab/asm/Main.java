@@ -23,16 +23,25 @@ public class Main {
     cr.accept(cp, 0);
     //printWriter.toString();
 
-    InputStream is = Main.class.getClassLoader().getResourceAsStream("java.lang.Runnable".replace(".", "/") + ".class");
+    InputStream is = Main.class.getClassLoader().getResourceAsStream("fjab.overloading.MyClass".replace(".", "/") + ".class");
     int i;
+    int count = 0;
+    int countNOP = 0;
     while((i=is.read())!=-1){
+      if(i==0){
+        countNOP++;
+      }
+      count++;
+      //System.out.print(i+" ");
       System.out.print(Integer.toHexString(i)+" ");
     }
+    System.out.print("\nsize in bytes:" +count);
+    System.out.print("\nnum NOPs:" + countNOP);
 
     //System.out.println("Frankenstein.LESS="+Frankenstein.LESS);
 
-    Textifier.main(new String[]{"java.lang.Runnable"});
-    System.out.println("==========================================");
-    ASMifier.main(new String[]{"fjab.overloading.MyClass"});
+    //Textifier.main(new String[]{"java.lang.Runnable"});
+    //System.out.println("==========================================");
+    //ASMifier.main(new String[]{"fjab.overloading.MyClass"});
   }
 }

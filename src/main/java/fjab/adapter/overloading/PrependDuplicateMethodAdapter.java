@@ -23,7 +23,7 @@ public class PrependDuplicateMethodAdapter extends ClassVisitor {
   public MethodVisitor visitMethod(int access, String name, String desc,
                                    String signature, String[] exceptions) {
 
-    if(!name.equals("<init>")) {
+    if(name.equals("print")) {
       MethodVisitor mv = cv.visitMethod(ACC_PUBLIC + ACC_STATIC, "print", "()Ljava/lang/Integer;", null, null);
       mv.visitCode();
       mv.visitFieldInsn(GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
